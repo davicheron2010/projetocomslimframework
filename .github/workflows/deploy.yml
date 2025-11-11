@@ -16,7 +16,7 @@ jobs:
           username: "root"
           key: ${{ secrets.SERVER_SSH_KEY }}
           source: "."
-          target: "/home/junior"
+          target: "/home/davi"
         
       - name: "Build da aplicação"
         uses: appleboy/ssh-action@v1
@@ -25,6 +25,8 @@ jobs:
           username: "root"
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
-            cd /home/junior
-            composer install --no-dev --no-progress -a
+            cd /home/davi
+            sudo dos2unix run.sh
+            sudo chmod +x run.sh
+            sudo bash run.sh
             chown -R www-data:www-data .
