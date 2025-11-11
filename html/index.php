@@ -1,15 +1,22 @@
 <?php
-
+use app\database\builder\InsertQuery;
 use Slim\Factory\AppFactory;
 
-require __DIR__ . '/../vendor/autoload.php';
+require __DIR__ . '/../../vendor/autoload.php';
+
+$values = [
+    'nome' => 'John',
+    'sobrenome' => 'Doe',
+    'cpf' => '123'
+];
+
+InsertQuery::table('cliente')->save($values);
 
 $app = AppFactory::create();
 
 $app->addRoutingMiddleware();
 
-$errorMiddleware = $app->addErrorMiddleware(true, true, true);
-require  __DIR__ . '/../app/helper/settings.php';
-require  __DIR__ . '/../app/route/route.php';
+require __DIR__ . '/../../app/helper/settings.php';
+require __DIR__ . '/../../app/route/route.php';
 
 $app->run();

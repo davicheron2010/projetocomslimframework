@@ -21,13 +21,13 @@ class Connection
                 PDO::ATTR_STRINGIFY_FETCHES => false                              # Desativa a conversão de valores numéricos para string.
             ];
             # A função static::$pdo vai criar a conexão com o banco de dados
-            statics::$pdo = new PDO(
-                'pgsql:host=localhost;port=5432;dbname=integra_development', # Dsn (Data Source Name) para PostgreSQL
+            static::$pdo = new PDO(
+                'pgsql:host=localhost;port=5432;dbname=senac_db',            # Dsn (Data Source Name) para PostgreSQL
                 'senac',                                                # Nome de usuário do bando de dados
                 'senac',                                                # senha do usuário do banco de dados
                 $options                                                 # Opções para a conexão PDO
             );
-            statics::$pdo->exec("SET NAMES 'utf8");
+            static::$pdo->exec("SET NAMES 'utf8");
             # Caso seja bem-sucedida a conexão retornamos a variável $pdo;
             return static::$pdo;
         } catch (\PDOException $e) {
@@ -35,3 +35,4 @@ class Connection
         }
     }
 }
+ 

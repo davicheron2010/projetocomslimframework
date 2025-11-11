@@ -2,25 +2,26 @@
 
 namespace app\controller;
 
-class User extends Base
+class Cliente extends Base
 {
     public function lista($request, $response)
     {
+
         $dadosTemplate = [
-            'titulo' => 'Lista de Usuários'
+            'titulo' => 'Lista de Cliente'
         ];
         return $this->getTwig()
-            ->render($response, $this->setView('listuser'), $dadosTemplate)
+            ->render($response, $this->setView('listacliente'), $dadosTemplate)
             ->withHeader('Content-Type', 'text/html')
             ->withStatus(200);
     }
     public function cadastro($request, $response)
     {
         $dadosTemplate = [
-            'titulo' => 'Cadastro de Usuários'
+            'titulo' => 'Cadastro de Cliente'
         ];
         return $this->getTwig()
-            ->render($response, $this->setView('user'), $dadosTemplate)
+            ->render($response, $this->setView('cliente'), $dadosTemplate)
             ->withHeader('Content-Type', 'text/html')
             ->withStatus(200);
     }

@@ -8,12 +8,12 @@
     "authors": [
         {
             "name": "Davi Cheron Da Silva",
-            "email": "davilvl12010@gmail.com"
+            "email": "davilvl2010@gmail.com"
         }
     ],
     "require": {
         "slim/slim": "^4.15",
-        "slim/psr7": "^1.7",
+        "slim/psr7": "^1.8",
         "slim/twig-view": "^3.4"
     }
 }
